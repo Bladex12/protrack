@@ -1,0 +1,10 @@
+^C:\USERS\AGUSTIN\DOCUMENTS\GITHUB\PROTRACKER\BUILD\WINDOWS\X64\CMAKEFILES\15F0EF69E7221716948B998BDE87FF68\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
