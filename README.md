@@ -1,10 +1,10 @@
-### 1. Install dependencies
+### 1. Instalar dependencias
 
 ```
 flutter pub get
 ```
 
-### 2. Run
+### 2. Correr
 
 ```
 flutter run -d windows
