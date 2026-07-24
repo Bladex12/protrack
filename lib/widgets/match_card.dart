@@ -6,8 +6,9 @@ import '../utils/date_formatter.dart';
 
 class MatchCard extends StatelessWidget {
   final Match match;
+  final VoidCallback? onTap;
 
-  const MatchCard({super.key, required this.match});
+const MatchCard({super.key, required this.match, this.onTap});
 
   Widget _opponentAvatar(String? imageUrl) {
     if (imageUrl == null || imageUrl.isEmpty) {
@@ -23,7 +24,10 @@ class MatchCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      child: Padding(
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap, 
+        child: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +62,8 @@ class MatchCard extends StatelessWidget {
             ),
           ],
         ),
+        ),
       ),
-    );
+    );  
   }
 }

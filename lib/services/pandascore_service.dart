@@ -105,4 +105,12 @@ class PandaScoreService {
     _cache[key] = _CacheEntry(decoded, DateTime.now());
     return decoded;
   }
+
+  Future<List<Player>> getPlayersByTeam(int teamId) {
+    return _getList(
+      '/players',
+      {'filter[team_id]': '$teamId', 'page[size]': '50'},
+      Player.fromJson,
+    );
+  }
 }

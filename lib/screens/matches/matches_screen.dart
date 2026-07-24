@@ -7,6 +7,7 @@ import '../../widgets/error_view.dart';
 import '../../widgets/game_filter_chips.dart';
 import '../../widgets/loading_view.dart';
 import '../../widgets/match_card.dart';
+import 'match_detail_screen.dart';
 
 class MatchesScreen extends StatefulWidget {
   const MatchesScreen({super.key});
@@ -66,7 +67,17 @@ class _MatchesScreenState extends State<MatchesScreen> {
     }
     return ListView.builder(
       itemCount: provider.matches.length,
-      itemBuilder: (context, index) => MatchCard(match: provider.matches[index]),
+      itemBuilder: (context, index) {
+        final match = provider.matches[index];
+        return MatchCard(
+          match: match,
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => MatchDetailScreen(match: match),
+            ),
+          ),
+        );
+      },
     );
   }
 }
